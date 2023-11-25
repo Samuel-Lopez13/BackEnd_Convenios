@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Presentation</name>
+    </assembly>
+    <members>
+        <member name="M:Presentation.Controllers.InstitucionController.ObtenerUsuarios">
+            <summary>
+            Devuelve una lista de todos los usuarios registrados
+            </summary>
+            <remarks>
+            <b>JSON:</b> todos los usuarios registrados
+            </remarks>
+        </member>
+    </members>
+</doc>
