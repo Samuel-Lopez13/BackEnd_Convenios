@@ -8,7 +8,7 @@ namespace Presentation.Controllers;
 
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class InstitucionController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -19,14 +19,26 @@ public class InstitucionController : ControllerBase
     }
     
     /// <summary>
-    /// Devuelve una lista de todos los usuarios registrados
+    /// Devuelve una lista de todos las instituciones registradas
     /// </summary>
     /// <remarks>
-    /// <b>JSON:</b> todos los usuarios registrados
+    /// <b>JSON:</b> todos las instituciones registradas
     /// </remarks>
-    [HttpGet("ObtenerUsuarios")]
-    public async Task<List<ObtenerInstitucionesResponse>> ObtenerUsuarios()
+    [HttpGet("Instituciones/{pagina}")]
+    public async Task<List<ObtenerInstitucionesResponse>> GetInstituciones(int pagina)
     {
-        return await _mediator.Send(new ObtenerInstituciones());
+        return await _mediator.Send(new ObtenerInstituciones(){ pagina = pagina });
+    }
+    
+    /// <summary>
+    /// Devuelve el total de paginas
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Numero de paginas
+    /// </remarks>
+    [HttpGet("Paginas")]
+    public async Task<ObtenerPaginasResponse> GetPaginas()
+    {
+        return await _mediator.Send(new ObtenerPaginas());
     }
 }

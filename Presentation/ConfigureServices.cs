@@ -16,7 +16,7 @@ public static class ConfigureServices
         {
             c.SwaggerDoc("v1", new OpenApiInfo 
             {
-                Title = "Software Factory", 
+                Title = "Convenios", 
                 Version = "v1" 
             });
     

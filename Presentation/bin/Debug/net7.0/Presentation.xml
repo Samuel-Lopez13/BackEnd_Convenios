@@ -4,12 +4,20 @@
         <name>Presentation</name>
     </assembly>
     <members>
-        <member name="M:Presentation.Controllers.InstitucionController.ObtenerUsuarios">
+        <member name="M:Presentation.Controllers.InstitucionController.GetInstituciones(System.Int32)">
             <summary>
-            Devuelve una lista de todos los usuarios registrados
+            Devuelve una lista de todos las instituciones registradas
             </summary>
             <remarks>
-            <b>JSON:</b> todos los usuarios registrados
+            <b>JSON:</b> todos las instituciones registradas
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.InstitucionController.GetPaginas">
+            <summary>
+            Devuelve el total de paginas
+            </summary>
+            <remarks>
+            <b>JSON:</b> Numero de paginas
             </remarks>
         </member>
     </members>
