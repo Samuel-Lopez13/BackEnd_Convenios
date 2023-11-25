@@ -1,8 +1,4 @@
-# N3XUS TECH
-
-<p align="center">
-  <img width=500px src="https://firebasestorage.googleapis.com/v0/b/logos-a6d6f.appspot.com/o/NEXUS.png?alt=media&token=ce9d5280-ed59-4c45-b325-f148303c4441">
-</p>
+# Convenios
 
 ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
