@@ -1,17 +1,42 @@
+using Core.Infraestructure.Persistance;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Core.Features.Instituciones.Queries;
 
 public record BuscarInstitucion : IRequest<List<BuscarInstitucionResponse>>
 {
     public string Nombre { get; set; }
+    public int pagina { get; set; }
 }
 
 public class BuscarInstitucionHandler : IRequestHandler<BuscarInstitucion, List<BuscarInstitucionResponse>>
 {
-    public Task<List<BuscarInstitucionResponse>> Handle(BuscarInstitucion request, CancellationToken cancellationToken)
+    private readonly ConvenioContext _context;
+    
+    public BuscarInstitucionHandler(ConvenioContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    
+    public async Task<List<BuscarInstitucionResponse>> Handle(BuscarInstitucion request, CancellationToken cancellationToken)
+    {
+        var institucion = await _context.Instituciones.Where(x => x.Nombre.Contains(request.Nombre)).ToListAsync();
+        
+        var response = institucion
+            .Skip((request.pagina - 1) * 10)
+            .Take(10)
+            .Select(x => new BuscarInstitucionResponse{
+                Institucion_Id = x.Institucion_Id,
+                Nombre = x.Nombre,
+                Ciudad = x.Ciudad,
+                Estado = x.Estado,
+                Pais = x.Pais,
+                Identificacion = x.Identificacion,
+                Direccion = x.Direccion
+            }).ToList();
+
+        return response;
     }
 }
 

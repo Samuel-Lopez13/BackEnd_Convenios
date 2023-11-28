@@ -4,6 +4,22 @@
         <name>Presentation</name>
     </assembly>
     <members>
+        <member name="M:Presentation.Controllers.InstitucionController.GetBuscarInstituciones(System.Int32,System.String)">
+            <summary>
+            Devuelve una lista de todos las instituciones buscadas por nombre
+            </summary>
+            <remarks>
+            <b>JSON:</b> todos las instituciones que coincidan con el nombre
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.InstitucionController.GetBuscarPaginas(System.String)">
+            <summary>
+            Devuelve el total de paginas de las instituciones buscadas por nombre
+            </summary>
+            <remarks>
+            <b>JSON:</b> Numero de paginas
+            </remarks>
+        </member>
         <member name="M:Presentation.Controllers.InstitucionController.GetInstituciones(System.Int32)">
             <summary>
             Devuelve una lista de todos las instituciones registradas
@@ -36,6 +52,14 @@
             <b>JSON:</b> Institucion eliminada
             <br/><br/>
             <b>404:</b> Not Found: No se encontro la institucion
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.UsuarioController.GetRol">
+            <summary>
+            Devuelve el rol del usuario actual
+            </summary>
+            <remarks>
+            <b>JSON:</b> El rol del usuario
             </remarks>
         </member>
         <member name="M:Presentation.Controllers.UsuarioController.GetUsuarios(System.Int32)">

@@ -20,6 +20,18 @@ public class UsuarioController : ControllerBase
     }
     
     /// <summary>
+    /// Devuelve el rol del usuario actual
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> El rol del usuario
+    /// </remarks>
+    [HttpGet("Rol")]
+    public async Task<ObtenerRolUsuarioResponse> GetRol()
+    {
+        return await _mediator.Send(new ObtenerRolUsuario());
+    }
+    
+    /// <summary>
     /// Devuelve una lista de todos los usuarios registradas
     /// </summary>
     /// <remarks>

@@ -20,6 +20,30 @@ public class InstitucionController : ControllerBase
     }
     
     /// <summary>
+    /// Devuelve una lista de todos las instituciones buscadas por nombre
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> todos las instituciones que coincidan con el nombre
+    /// </remarks>
+    [HttpGet("Buscar")]
+    public async Task<List<BuscarInstitucionResponse>> GetBuscarInstituciones(int pagina, string nombre)
+    {
+        return await _mediator.Send(new BuscarInstitucion(){ pagina = pagina, Nombre = nombre });
+    }
+    
+    /// <summary>
+    /// Devuelve el total de paginas de las instituciones buscadas por nombre
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Numero de paginas
+    /// </remarks>
+    [HttpGet("Paginas/{nombre}")]
+    public async Task<BuscarPaginasIResponse> GetBuscarPaginas(string nombre)
+    {
+        return await _mediator.Send(new BuscarPaginasI(){Nombre = nombre});
+    }
+    
+    /// <summary>
     /// Devuelve una lista de todos las instituciones registradas
     /// </summary>
     /// <remarks>
