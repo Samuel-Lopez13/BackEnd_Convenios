@@ -87,6 +87,7 @@ namespace Core.Infraestructure.Persistance
                 entity.Property(e => e.Identificacion).HasMaxLength(50);
 
                 entity.Property(e => e.Nombre).HasMaxLength(50).IsRequired();
+                entity.HasIndex(e => e.Nombre).IsUnique();
 
                 entity.Property(e => e.Estado).HasMaxLength(50);
             });

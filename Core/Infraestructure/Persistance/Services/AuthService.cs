@@ -28,7 +28,7 @@ public class AuthService : IAuthService
         
         //Si no es encontrado el usuario deniega el acceso
         if(user == null)
-            throw new ForbiddenAccessException();
+            throw new BadRequestException();
         
         //Genera un token JWT
         var tokenHandler = new JwtSecurityTokenHandler();

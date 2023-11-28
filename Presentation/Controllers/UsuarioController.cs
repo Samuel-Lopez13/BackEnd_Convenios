@@ -1,4 +1,5 @@
 using Core.Features.Usuarios.Command;
+using Core.Features.Usuarios.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -18,6 +19,38 @@ public class UsuarioController : ControllerBase
         _mediator = mediator;
     }
     
+    /// <summary>
+    /// Devuelve una lista de todos los usuarios registradas
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> todos los usuarios registradas
+    /// </remarks>
+    [HttpGet("Usuarios/{pagina}")]
+    public async Task<List<ObtenerUsuariosResponse>> GetUsuarios(int pagina)
+    {
+        return await _mediator.Send(new ObtenerUsuarios(){ pagina = pagina });
+    }
+    
+    /// <summary>
+    /// Devuelve el total de paginas
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Numero de paginas
+    /// </remarks>
+    [HttpGet("Paginas")]
+    public async Task<ObtenerPaginasUResponse> GetPaginas()
+    {
+        return await _mediator.Send(new ObtenerPaginasU());
+    }
+    
+    /// <summary>
+    /// Inicio de sesion
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Devuelve el token de acceso
+    /// <br/><br/>
+    /// <b>400:</b> Si el usuario no se encuentra registrado
+    /// </remarks>
     [AllowAnonymous]
     [HttpPost("Login")]
     public async Task<LoginCommandResponse> Login([FromBody] LoginCommand command)

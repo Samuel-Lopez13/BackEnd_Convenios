@@ -1,3 +1,4 @@
+using Core.Features.Instituciones.Command;
 using Core.Features.Instituciones.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -37,8 +38,35 @@ public class InstitucionController : ControllerBase
     /// <b>JSON:</b> Numero de paginas
     /// </remarks>
     [HttpGet("Paginas")]
-    public async Task<ObtenerPaginasResponse> GetPaginas()
+    public async Task<ObtenerPaginasIResponse> GetPaginas()
     {
-        return await _mediator.Send(new ObtenerPaginas());
+        return await _mediator.Send(new ObtenerPaginasI());
     }
+    
+    /// <summary>
+    /// Crea una institucion
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Institucion creada
+    /// </remarks>
+    [HttpPost("Institucion")]
+    public async Task<IActionResult> PostInstitucion([FromBody] CrearInstitucionCommand command)
+    {
+        return Ok(await _mediator.Send(command));
+    }
+    
+    /// <summary>
+    /// Elimina una institucion
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Institucion eliminada
+    /// <br/><br/>
+    /// <b>404:</b> Not Found: No se encontro la institucion
+    /// </remarks>
+    [HttpDelete("Institucion/{Institucion_Id}")]
+    public async Task<IActionResult> DeleteInstitucion(int Institucion_Id)
+    {
+        return Ok(await _mediator.Send(new EliminarInstitucionCommand(){ Institucion_Id = Institucion_Id }));
+    }
+    
 }

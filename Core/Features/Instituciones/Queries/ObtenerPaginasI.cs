@@ -5,22 +5,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.Features.Instituciones.Queries;
 
-public record ObtenerPaginas : IRequest<ObtenerPaginasResponse>;
+public record ObtenerPaginasI : IRequest<ObtenerPaginasIResponse>;
 
-public class ObtenerPaginasHandler : IRequestHandler<ObtenerPaginas, ObtenerPaginasResponse>
+public class ObtenerPaginasIHandler : IRequestHandler<ObtenerPaginasI, ObtenerPaginasIResponse>
 {
     private readonly ConvenioContext _context;
     
-    public ObtenerPaginasHandler(ConvenioContext context)
+    public ObtenerPaginasIHandler(ConvenioContext context)
     {
         _context = context;
     }
     
-    public async Task<ObtenerPaginasResponse> Handle(ObtenerPaginas request, CancellationToken cancellationToken)
+    public async Task<ObtenerPaginasIResponse> Handle(ObtenerPaginasI request, CancellationToken cancellationToken)
     {
         var instituciones = await _context.Instituciones.ToListAsync();
         
-        var response = new ObtenerPaginasResponse{
+        var response = new ObtenerPaginasIResponse{
             Paginas = (int)Math.Ceiling((double)instituciones.Count / 10)
         };
 
@@ -28,7 +28,7 @@ public class ObtenerPaginasHandler : IRequestHandler<ObtenerPaginas, ObtenerPagi
     }
 }
 
-public record ObtenerPaginasResponse
+public record ObtenerPaginasIResponse
 {
     public int Paginas { get; set; }
 }

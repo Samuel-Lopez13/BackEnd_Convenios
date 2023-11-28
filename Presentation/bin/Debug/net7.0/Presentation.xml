@@ -20,5 +20,49 @@
             <b>JSON:</b> Numero de paginas
             </remarks>
         </member>
+        <member name="M:Presentation.Controllers.InstitucionController.PostInstitucion(Core.Features.Instituciones.Command.CrearInstitucionCommand)">
+            <summary>
+            Crea una institucion
+            </summary>
+            <remarks>
+            <b>JSON:</b> Institucion creada
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.InstitucionController.DeleteInstitucion(System.Int32)">
+            <summary>
+            Elimina una institucion
+            </summary>
+            <remarks>
+            <b>JSON:</b> Institucion eliminada
+            <br/><br/>
+            <b>404:</b> Not Found: No se encontro la institucion
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.UsuarioController.GetUsuarios(System.Int32)">
+            <summary>
+            Devuelve una lista de todos los usuarios registradas
+            </summary>
+            <remarks>
+            <b>JSON:</b> todos los usuarios registradas
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.UsuarioController.GetPaginas">
+            <summary>
+            Devuelve el total de paginas
+            </summary>
+            <remarks>
+            <b>JSON:</b> Numero de paginas
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.UsuarioController.Login(Core.Features.Usuarios.Command.LoginCommand)">
+            <summary>
+            Inicio de sesion
+            </summary>
+            <remarks>
+            <b>JSON:</b> Devuelve el token de acceso
+            <br/><br/>
+            <b>400:</b> Si el usuario no se encuentra registrado
+            </remarks>
+        </member>
     </members>
 </doc>
