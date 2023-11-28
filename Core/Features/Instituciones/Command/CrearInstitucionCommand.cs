@@ -1,6 +1,6 @@
+using Core.Domain.Entities;
 using Core.Infraestructure.Persistance;
 using MediatR;
-using Presentation;
 
 namespace Core.Features.Instituciones.Command;
 

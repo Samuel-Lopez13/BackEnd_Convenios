@@ -56,6 +56,30 @@ public class UsuarioController : ControllerBase
     }
     
     /// <summary>
+    /// Devuelve una lista de todos los usuarios buscadas por nombre
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> todos los usuarios que coincidan con el nombre
+    /// </remarks>
+    [HttpGet("Buscar")]
+    public async Task<List<BuscarUsuariosResponse>> GetBuscarInstituciones(int pagina, string nombre)
+    {
+        return await _mediator.Send(new BuscarUsuarios(){ Pagina = pagina, Nombre = nombre });
+    }
+    
+    /// <summary>
+    /// Devuelve el total de paginas de los usuarios buscados por nombre
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Numero de paginas
+    /// </remarks>
+    [HttpGet("Paginas/{nombre}")]
+    public async Task<BuscarPaginasUResponse> GetBuscarPaginas(string nombre)
+    {
+        return await _mediator.Send(new BuscarPaginasU(){Nombre = nombre});
+    }
+    
+    /// <summary>
     /// Inicio de sesion
     /// </summary>
     /// <remarks>
@@ -68,5 +92,31 @@ public class UsuarioController : ControllerBase
     public async Task<LoginCommandResponse> Login([FromBody] LoginCommand command)
     {
         return await _mediator.Send(command);
+    }
+
+    /// <summary>
+    /// Crea un nuevo usuario
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Correo y Contraseña del usuario creado
+    /// </remarks>
+    [HttpPost("Usuarios")]
+    public async Task<CrearUsuarioResponse> PostUsuario([FromBody] CrearUsuarioCommand command)
+    {
+        return await _mediator.Send(command);
+    }
+    
+    /// <summary>
+    /// Elimina un usuario
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Usuario eliminada
+    /// <br/><br/>
+    /// <b>404:</b> Not Found: No se encontro el usuario
+    /// </remarks>
+    [HttpDelete("Usuario/{Usuario_Id}")]
+    public async Task<IActionResult> DeleteUsuario(int Usuario_Id)
+    {
+        return Ok(await _mediator.Send(new EliminarUsuarioCommand(){ Usuario_Id = Usuario_Id }));
     }
 }

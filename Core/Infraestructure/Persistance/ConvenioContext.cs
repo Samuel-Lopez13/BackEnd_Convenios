@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Presentation;
+﻿using Core.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Core.Infraestructure.Persistance
 {

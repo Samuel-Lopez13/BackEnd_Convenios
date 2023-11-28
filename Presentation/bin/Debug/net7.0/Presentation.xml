@@ -78,6 +78,22 @@
             <b>JSON:</b> Numero de paginas
             </remarks>
         </member>
+        <member name="M:Presentation.Controllers.UsuarioController.GetBuscarInstituciones(System.Int32,System.String)">
+            <summary>
+            Devuelve una lista de todos los usuarios buscadas por nombre
+            </summary>
+            <remarks>
+            <b>JSON:</b> todos los usuarios que coincidan con el nombre
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.UsuarioController.GetBuscarPaginas(System.String)">
+            <summary>
+            Devuelve el total de paginas de los usuarios buscados por nombre
+            </summary>
+            <remarks>
+            <b>JSON:</b> Numero de paginas
+            </remarks>
+        </member>
         <member name="M:Presentation.Controllers.UsuarioController.Login(Core.Features.Usuarios.Command.LoginCommand)">
             <summary>
             Inicio de sesion
@@ -86,6 +102,24 @@
             <b>JSON:</b> Devuelve el token de acceso
             <br/><br/>
             <b>400:</b> Si el usuario no se encuentra registrado
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.UsuarioController.PostUsuario(Core.Features.Usuarios.Command.CrearUsuarioCommand)">
+            <summary>
+            Crea un nuevo usuario
+            </summary>
+            <remarks>
+            <b>JSON:</b> Correo y Contraseña del usuario creado
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.UsuarioController.DeleteUsuario(System.Int32)">
+            <summary>
+            Elimina un usuario
+            </summary>
+            <remarks>
+            <b>JSON:</b> Usuario eliminada
+            <br/><br/>
+            <b>404:</b> Not Found: No se encontro el usuario
             </remarks>
         </member>
     </members>
