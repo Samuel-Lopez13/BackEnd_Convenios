@@ -36,10 +36,18 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginCommandRes
         //Si cumple con las validaciones se procede a autenticar
         var token = await _authService.AuthenticateAsync(request.Email, request.Contrasena);
         
+        if(token == null)
+            throw new NotFoundException("Usuario no encontrado");
+        
+        var usuario = await _context.Usuarios
+            .Include(u => u.Roles)
+            .FirstOrDefaultAsync(x => x.Email == request.Email);
+        
         //Respuesta
         return new LoginCommandResponse()
         {
             Token = token,
+            Rol = usuario?.Roles.Nombre ?? "Sin Rol"
         };
     }
 }
@@ -47,4 +55,5 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginCommandRes
 public record LoginCommandResponse
 {
     public string Token { get; set; }
+    public string Rol { get; set; }
 }
