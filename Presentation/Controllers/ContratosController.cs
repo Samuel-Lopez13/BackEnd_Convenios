@@ -69,6 +69,12 @@ public class ContratosController : ControllerBase
         return await _mediator.Send(new ObtenerPaginasC());
     }
     
+    [HttpGet("ContratosUsuario")]
+    public async Task<List<ContratosUsuariosResponse>> GetContratosUsuario()
+    {
+        return await _mediator.Send(new ContratosUsuario());
+    }
+    
     /// <summary>
     /// Crea un contrato
     /// </summary>
