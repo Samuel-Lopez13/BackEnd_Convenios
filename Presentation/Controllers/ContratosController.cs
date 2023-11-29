@@ -21,6 +21,12 @@ public class ContratosController : ControllerBase
         _mediator = mediator;
     }
     
+    [HttpGet("Contratos/{Contratos_Id}")]
+    public async Task<ContratoIdResponse> GetContratosId(int Contratos_Id)
+    {
+        return await _mediator.Send(new ContratosId(){ Contrato_Id = Contratos_Id });
+    }
+    
     /// <summary>
     /// Devuelve una lista de todos los contratos buscados por nombre
     /// </summary>
