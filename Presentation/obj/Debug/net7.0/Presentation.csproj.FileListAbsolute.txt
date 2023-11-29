@@ -76,3 +76,5 @@ C:\Users\lopez\Desktop\Proyectos\Convenio v2\BackEnd\Convenios\Presentation\bin\
 C:\Users\lopez\Desktop\Proyectos\Convenio v2\BackEnd\Convenios\Presentation\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\lopez\Desktop\Proyectos\Convenio v2\BackEnd\Convenios\Presentation\bin\Debug\net7.0\Core.xml
 C:\Users\lopez\Desktop\Proyectos\Convenio v2\BackEnd\Convenios\Presentation\obj\Debug\net7.0\Presentation.xml
+C:\Users\lopez\Desktop\Proyectos\Convenio v2\BackEnd\Convenios\Presentation\bin\Debug\net7.0\CloudinaryDotNet.dll
+C:\Users\lopez\Desktop\Proyectos\Convenio v2\BackEnd\Convenios\Presentation\bin\Debug\net7.0\Newtonsoft.Json.dll

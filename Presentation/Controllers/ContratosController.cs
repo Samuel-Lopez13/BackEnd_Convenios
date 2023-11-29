@@ -1,0 +1,97 @@
+using Core.Features.Contratos.Command;
+using Core.Features.Contratos.Queries;
+using Core.Features.Instituciones.Command;
+using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Presentation.Controllers;
+
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+[ApiController]
+[Route("[controller]")]
+public class ContratosController : ControllerBase
+{
+    private readonly IMediator _mediator;
+
+    public ContratosController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+    
+    /// <summary>
+    /// Devuelve una lista de todos los contratos buscados por nombre
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> todos los contratos que coincidan con el nombre
+    /// </remarks>
+    [HttpGet("Buscar")]
+    public async Task<List<BuscarContratosResponse>> GetBuscarInstituciones(int pagina, string nombre)
+    {
+        return await _mediator.Send(new BuscarContratos(){ pagina = pagina, Nombre = nombre });
+    }
+    
+    /// <summary>
+    /// Devuelve el total de paginas de los contratos buscados por nombre
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Numero de paginas
+    /// </remarks>
+    [HttpGet("Paginas/{nombre}")]
+    public async Task<BuscarPaginasCResponse> GetBuscarPaginas(string nombre)
+    {
+        return await _mediator.Send(new BuscarPaginasC(){Nombre = nombre});
+    }
+    
+    /// <summary>
+    /// Devuelve una lista de todos los contratos registradas
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> todos los contratos registradas
+    /// </remarks>
+    [HttpGet("Contratos/{pagina}")]
+    public async Task<List<ObtenerContratosResponse>> GetInstituciones(int pagina)
+    {
+        return await _mediator.Send(new ObtenerContratos(){ pagina = pagina });
+    }
+    
+    /// <summary>
+    /// Devuelve el total de paginas
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Numero de paginas
+    /// </remarks>
+    [HttpGet("Paginas")]
+    public async Task<ObtenerPaginasCResponse> GetPaginas()
+    {
+        return await _mediator.Send(new ObtenerPaginasC());
+    }
+    
+    /// <summary>
+    /// Crea un contrato
+    /// </summary>
+    /// <remarks>
+    /// <b>200:</b> Ok institucion creada con exito
+    /// </remarks>
+    [HttpPost("Contrato")]
+    public async Task<IActionResult> PostContrato([FromForm] CrearContratoCommand command)
+    {
+        return Ok(await _mediator.Send(command));
+    }
+    
+    /// <summary>
+    /// Elimina un contrato
+    /// </summary>
+    /// <remarks>
+    /// <b>200:</b> contrato eliminado
+    /// <br/><br/>
+    /// <b>404:</b> Not Found: No se encontro el contrato
+    /// </remarks>
+    [HttpDelete("Contrato/{Contrato_Id}")]
+    public async Task<IActionResult> DeleteContrato(int Contrato_Id)
+    {
+        return Ok(await _mediator.Send(new EliminarContratoCommand(){ Contrato_Id = Contrato_Id }));
+    }
+}

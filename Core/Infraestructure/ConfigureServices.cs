@@ -18,6 +18,9 @@ public static class ConfigureServices
     {
         //Inyeccion de la Intefaz con su implementacion
         services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IValidateFiles, ValidateFiles>();
+        services.AddScoped<IConvertToBase64, ConvertToBase64>();
+        services.AddScoped<IUploadFile, UploadFiles>();
         
         services.AddAuthorization();
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

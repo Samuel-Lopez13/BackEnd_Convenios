@@ -4,6 +4,56 @@
         <name>Presentation</name>
     </assembly>
     <members>
+        <member name="M:Presentation.Controllers.ContratosController.GetBuscarInstituciones(System.Int32,System.String)">
+            <summary>
+            Devuelve una lista de todos los contratos buscados por nombre
+            </summary>
+            <remarks>
+            <b>JSON:</b> todos los contratos que coincidan con el nombre
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.ContratosController.GetBuscarPaginas(System.String)">
+            <summary>
+            Devuelve el total de paginas de los contratos buscados por nombre
+            </summary>
+            <remarks>
+            <b>JSON:</b> Numero de paginas
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.ContratosController.GetInstituciones(System.Int32)">
+            <summary>
+            Devuelve una lista de todos los contratos registradas
+            </summary>
+            <remarks>
+            <b>JSON:</b> todos los contratos registradas
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.ContratosController.GetPaginas">
+            <summary>
+            Devuelve el total de paginas
+            </summary>
+            <remarks>
+            <b>JSON:</b> Numero de paginas
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.ContratosController.PostContrato(Core.Features.Contratos.Command.CrearContratoCommand)">
+            <summary>
+            Crea un contrato
+            </summary>
+            <remarks>
+            <b>200:</b> Ok institucion creada con exito
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.ContratosController.DeleteContrato(System.Int32)">
+            <summary>
+            Elimina un contrato
+            </summary>
+            <remarks>
+            <b>200:</b> contrato eliminado
+            <br/><br/>
+            <b>404:</b> Not Found: No se encontro el contrato
+            </remarks>
+        </member>
         <member name="M:Presentation.Controllers.InstitucionController.GetBuscarInstituciones(System.Int32,System.String)">
             <summary>
             Devuelve una lista de todos las instituciones buscadas por nombre
