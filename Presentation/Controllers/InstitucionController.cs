@@ -19,6 +19,12 @@ public class InstitucionController : ControllerBase
         _mediator = mediator;
     }
     
+    [HttpGet("intitucionFull")]
+    public async Task<InstitucionFullResponse> GetInstitucionFull()
+    {
+        return await _mediator.Send(new InstitucionFull());
+    }
+    
     /// <summary>
     /// Devuelve una lista de todos las instituciones buscadas por nombre
     /// </summary>

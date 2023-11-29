@@ -10,6 +10,7 @@ namespace Core.Infraestructure.Persistance
         public DbSet<Contrato> Contratos { get; set; } = null!;
         public DbSet<Alerta> Alertas { get; set; } = null!;
         public DbSet<Chat> Chats { get; set; } = null!;
+        public DbSet<Intercambio> Intercambios { get; set; } = null!;
         public DbSet<Institucion> Instituciones { get; set; } = null!;
         public DbSet<Log> Logs { get; set; } = null!;
         public DbSet<Rol> Roles { get; set; } = null!;
@@ -37,6 +38,17 @@ namespace Core.Infraestructure.Persistance
                     .HasForeignKey(d => d.Institucion_Id)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Agreement_ibfk_1");
+            });
+            
+            modelBuilder.Entity<Intercambio>(entity =>
+            {
+                entity.HasKey(e => e.Intercambio_Id);
+
+                entity.HasOne(d => d.Contratos)
+                    .WithMany(p => p.Intercambios)
+                    .HasForeignKey(d => d.Contrato_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Intercambio_ibfk_1");
             });
 
             modelBuilder.Entity<Alerta>(entity =>
