@@ -109,6 +109,12 @@ public class InstitucionController : ControllerBase
         return Ok(await _mediator.Send(command));
     }
     
+    [HttpPut("Institucion")]
+    public async Task<IActionResult> PutInstitucion([FromBody] ModificarInstitucionCommand command)
+    {
+        return Ok(await _mediator.Send(command));
+    }
+    
     /// <summary>
     /// Elimina una institucion
     /// </summary>
