@@ -36,6 +36,22 @@
             <b>JSON:</b> Numero de paginas
             </remarks>
         </member>
+        <member name="M:Presentation.Controllers.InstitucionController.GetAllInstituciones">
+            <summary>
+            Devuelve una lista de todos las instituciones registradas
+            </summary>
+            <remarks>
+            <b>JSON:</b> Devuelve todas las instituciones
+            </remarks>
+        </member>
+        <member name="M:Presentation.Controllers.InstitucionController.GetSearchInstituciones(System.String)">
+            <summary>
+            Devuelve una lista de todos las instituciones que coincidan con la busqueda
+            </summary>
+            <remarks>
+            <b>JSON:</b> Lista de las instituciones
+            </remarks>
+        </member>
         <member name="M:Presentation.Controllers.InstitucionController.PostInstitucion(Core.Features.Instituciones.Command.CrearInstitucionCommand)">
             <summary>
             Crea una institucion

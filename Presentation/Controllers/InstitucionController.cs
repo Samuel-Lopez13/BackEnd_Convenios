@@ -68,6 +68,30 @@ public class InstitucionController : ControllerBase
     }
     
     /// <summary>
+    /// Devuelve una lista de todos las instituciones registradas
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Devuelve todas las instituciones
+    /// </remarks>
+    [HttpGet("AllInstitution")]
+    public async Task<List<ObtenerAllInstitucionResponse>> GetAllInstituciones()
+    {
+        return await _mediator.Send(new ObtenerAllInstitucion());
+    }   
+    
+    /// <summary>
+    /// Devuelve una lista de todos las instituciones que coincidan con la busqueda
+    /// </summary>
+    /// <remarks>
+    /// <b>JSON:</b> Lista de las instituciones
+    /// </remarks>
+    [HttpGet("AllInstitution/{nombre}")]
+    public async Task<List<BuscarAllInstitucionResponse>> GetSearchInstituciones(string nombre)
+    {
+        return await _mediator.Send(new BuscarAllInstitucion() { Nombre = nombre });
+    }
+    
+    /// <summary>
     /// Crea una institucion
     /// </summary>
     /// <remarks>

@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="Features\Contratos\Queries\" />
       <Folder Include="Infraestructure\Persistance\Migrations\" />
     </ItemGroup>
 
