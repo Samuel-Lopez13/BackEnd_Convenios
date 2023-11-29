@@ -21,7 +21,7 @@ public class ContratosController : ControllerBase
         _mediator = mediator;
     }
     
-    [HttpGet("Contratos/{Contratos_Id}")]
+    [HttpGet("ContratosFile/{Contratos_Id}")]
     public async Task<ContratoIdResponse> GetContratosId(int Contratos_Id)
     {
         return await _mediator.Send(new ContratosId(){ Contrato_Id = Contratos_Id });
@@ -89,6 +89,12 @@ public class ContratosController : ControllerBase
     /// </remarks>
     [HttpPost("Contrato")]
     public async Task<IActionResult> PostContrato([FromForm] CrearContratoCommand command)
+    {
+        return Ok(await _mediator.Send(command));
+    }
+    
+    [HttpPut("Contratos")]
+    public async Task<IActionResult> PutContratos([FromForm] ModifcarContratosId command)
     {
         return Ok(await _mediator.Send(command));
     }
