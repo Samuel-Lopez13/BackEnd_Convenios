@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Presentation\\Presentation.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\obj\\",
+=======
+    "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Presentation\\Presentation.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\Core.csproj",
+        "projectName": "Core",
+        "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\obj\\",
+>>>>>>> 932e5a0633b80d13dec91b6d62f3dd654767e524
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lopez\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -103,6 +117,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Presentation\\Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -111,6 +126,16 @@
         "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Presentation\\Presentation.csproj",
         "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Presentation\\obj\\",
+=======
+    "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Presentation\\Presentation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Presentation\\Presentation.csproj",
+        "projectName": "Presentation",
+        "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Presentation\\Presentation.csproj",
+        "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Presentation\\obj\\",
+>>>>>>> 932e5a0633b80d13dec91b6d62f3dd654767e524
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lopez\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -127,8 +152,13 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\Core.csproj": {
                 "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\Core.csproj"
+=======
+              "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\Core.csproj"
+>>>>>>> 932e5a0633b80d13dec91b6d62f3dd654767e524
               }
             }
           }

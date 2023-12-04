@@ -35,12 +35,21 @@ public class CrearContratoCommandHandler : IRequestHandler<CrearContratoCommand>
             FechaCreacion = DateTime.Now,
             Descripcion = request.Descripcion,
             Institucion_Id = request.Institucion_Id,
-            Fase = "1",
             Status = "Activo",
             File = documento
         };
         
         await _context.Contratos.AddAsync(contrato);
+        await _context.SaveChangesAsync();
+        
+        var intercambio = new Intercambio
+        {
+            Contrato_Id = contrato.Contrato_Id,
+            Firma = false,
+            Revision = false
+        };
+        
+        await _context.Intercambios.AddAsync(intercambio);
         await _context.SaveChangesAsync();
         
         return Unit.Value;

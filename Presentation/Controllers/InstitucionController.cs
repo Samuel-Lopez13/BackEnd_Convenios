@@ -19,6 +19,12 @@ public class InstitucionController : ControllerBase
         _mediator = mediator;
     }
     
+    [HttpGet("intitucionFull")]
+    public async Task<InstitucionFullResponse> GetInstitucionFull()
+    {
+        return await _mediator.Send(new InstitucionFull());
+    }
+    
     /// <summary>
     /// Devuelve una lista de todos las instituciones buscadas por nombre
     /// </summary>
@@ -99,6 +105,12 @@ public class InstitucionController : ControllerBase
     /// </remarks>
     [HttpPost("Institucion")]
     public async Task<IActionResult> PostInstitucion([FromBody] CrearInstitucionCommand command)
+    {
+        return Ok(await _mediator.Send(command));
+    }
+    
+    [HttpPut("Institucion")]
+    public async Task<IActionResult> PutInstitucion([FromBody] ModificarInstitucionCommand command)
     {
         return Ok(await _mediator.Send(command));
     }

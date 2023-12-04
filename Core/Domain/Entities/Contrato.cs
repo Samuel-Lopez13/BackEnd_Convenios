@@ -22,7 +22,7 @@ namespace Core.Domain.Entities
         public string? Descripcion { get; set; }
         public string? Status { get; set; }
         public string? File { get; set; }
-        public string Fase { get; set; }
+        public string? FileAntiguo { get; set; }
         public int Institucion_Id { get; set; }
 
         public Institucion Instituciones { get; set; } = null!;

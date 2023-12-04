@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Core
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\lopez\Desktop\Proyectos\Convenio v2\Convenios\Core\
+=======
+build_property.ProjectDir = C:\Users\lopez\Desktop\Proyectos\Convenio v2\BackEnd\BackEnd_Convenios\Core\
+>>>>>>> 932e5a0633b80d13dec91b6d62f3dd654767e524
