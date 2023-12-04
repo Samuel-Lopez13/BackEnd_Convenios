@@ -21,7 +21,7 @@ public class CrearInstitucionCommandHandler : IRequestHandler<CrearInstitucionCo
     public async Task<Unit> Handle(CrearInstitucionCommand request, CancellationToken cancellationToken)
     {
         var institucion = new Institucion{
-            Nombre = request.Nombre
+            Nombre = request.Nombre,
         };
         
         await _context.Instituciones.AddAsync(institucion);

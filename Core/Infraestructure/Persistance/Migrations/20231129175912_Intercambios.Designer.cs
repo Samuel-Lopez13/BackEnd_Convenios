@@ -3,6 +3,7 @@ using System;
 using Core.Infraestructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Core.Infraestructure.Persistance.Migrations
 {
     [DbContext(typeof(ConvenioContext))]
-    partial class ConvenioContextModelSnapshot : ModelSnapshot
+    [Migration("20231129175912_Intercambios")]
+    partial class Intercambios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,6 +136,9 @@ namespace Core.Infraestructure.Persistance.Migrations
                     b.Property<string>("Estado")
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
+
+                    b.Property<bool>("Full")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Identificacion")
                         .HasMaxLength(50)
@@ -312,8 +317,9 @@ namespace Core.Infraestructure.Persistance.Migrations
                     b.HasOne("Core.Domain.Entities.Contrato", "Contratos")
                         .WithMany("Intercambios")
                         .HasForeignKey("Contrato_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("Intercambio_ibfk_1");
+                        .HasConstraintName("Alert_ibfk_1");
 
                     b.Navigation("Contratos");
                 });

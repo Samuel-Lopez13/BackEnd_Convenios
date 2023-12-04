@@ -3,6 +3,7 @@ using System;
 using Core.Infraestructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Core.Infraestructure.Persistance.Migrations
 {
     [DbContext(typeof(ConvenioContext))]
-    partial class ConvenioContextModelSnapshot : ModelSnapshot
+    [Migration("20231129180037_Intercambos v2")]
+    partial class Intercambosv2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,6 +136,9 @@ namespace Core.Infraestructure.Persistance.Migrations
                     b.Property<string>("Estado")
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
+
+                    b.Property<bool>("Full")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Identificacion")
                         .HasMaxLength(50)

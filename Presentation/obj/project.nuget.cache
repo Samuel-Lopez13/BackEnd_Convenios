@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vV20noe++xqKpVwynkM6aA0lbTWu8UOItjIEkjWQd61dSzCusUcTjyJFraRabyc7pHQhH5V3NA6kku1OnPSc5w==",
+  "dgSpecHash": "K2E9yHYIKwIGxDtfejz1jcp7NaB0f9x/U03a9lHhWvcrQ3Pcjl7CjAcd1r8jA7tUFtUOfbU92R0XOF5uPXcxAQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\Convenios\\Presentation\\Presentation.csproj",
+  "projectFilePath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Presentation\\Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lopez\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\lopez\\.nuget\\packages\\cloudinarydotnet\\1.22.0\\cloudinarydotnet.1.22.0.nupkg.sha512",

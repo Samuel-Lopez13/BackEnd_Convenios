@@ -1,3 +1,4 @@
+using Core.Features.Chat.Command;
 using Core.Features.Usuarios.Command;
 using Core.Features.Usuarios.Queries;
 using MediatR;
@@ -17,6 +18,13 @@ public class UsuarioController : ControllerBase
     public UsuarioController(IMediator mediator)
     {
         _mediator = mediator;
+    }
+    
+    [AllowAnonymous]
+    [HttpGet("Correo")]
+    public async Task<IActionResult> GetUsuario(string Correo)
+    {
+        return Ok(await _mediator.Send(new CorreoCommand() { Correo = Correo }));
     }
     
     /// <summary>

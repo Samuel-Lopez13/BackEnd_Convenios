@@ -5797,11 +5797,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\Convenios\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\Convenios\\Core\\Core.csproj",
+      "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\Convenios\\Core\\obj\\",
+      "outputPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lopez\\AppData\\Roaming\\NuGet\\NuGet.Config",

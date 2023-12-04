@@ -35,6 +35,7 @@ public class CrearContratoCommandHandler : IRequestHandler<CrearContratoCommand>
             FechaCreacion = DateTime.Now,
             Descripcion = request.Descripcion,
             Institucion_Id = request.Institucion_Id,
+            Fase = "1",
             Status = "Activo",
             File = documento
         };
