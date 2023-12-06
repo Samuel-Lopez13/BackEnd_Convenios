@@ -117,6 +117,12 @@ public class ContratosController : ControllerBase
         return Ok(await _mediator.Send(command));
     }
     
+    [HttpPut("FirmaUsuario")]
+    public async Task<IActionResult> PutFirmaUsuario([FromBody] FirmaUsuarioCommand command)
+    {
+        return Ok(await _mediator.Send(command));
+    }
+    
     [HttpPut("Contratos")]
     public async Task<IActionResult> PutContratos([FromForm] ModifcarContratosId command)
     {

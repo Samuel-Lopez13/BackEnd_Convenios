@@ -19,6 +19,12 @@ public class ChatController : ControllerBase
         _mediator = mediator;
     }
     
+    [HttpPost("Correo")]
+    public async Task<ActionResult> PostCorreo([FromBody] CorreoCommand command)
+    {
+        return Ok(await _mediator.Send(command));
+    }
+    
     [HttpPost("Mensaje")]
     public async Task<ActionResult> PostMensaje([FromBody] ChatCommand command)
     {

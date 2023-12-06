@@ -64,30 +64,85 @@ public class MensajeCommandHandler : IRequestHandler<CorreoCommand>
                 <html>
                 <head>
                     <style>
-                        body {
-                            text-align: center;
-                            font-family: Arial, sans-serif;
-                        }
-                        .container {
-                            background-color: #f2f2f2;
+                        .contenedor{
                             width: 100%;
-                            padding: 0 30%;
+                            background-color: #F2F2F2;
+                            box-sizing: border-box;
+                            padding-left: calc((100% - 600px) / 2);
                         }
 
-                        header {
-                            width: 40%;
-                            background-color: #3498db;
-                            text-align: center;
-                            font-size: 35px;
-                            color: black;
+                        .contenido{
+                            width: 600px;
+                            height: 100%;
+                            background-color: #F5F5F5;
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                        header{
+                            width: 100%;
+                            height: 130px;
+                            background-color: #1B355D;
+                            display: flex;
+                        }
+
+                        .uac{
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        .uac_img{
+                            width: 200px;
+                        }
+
+                        .convenios{
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: end;
+                            padding: 15px;
+                        }
+
+                        .convenios_img{
+                            width: 120px;
+                            height: 55px;
+                        }
+
+                        .encabezado{
+                            width: 100%;
+                            height: 50px;
+                            background-color: #BDBDBD;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .encabezado__frase{
+                            font-size: 13px;
+                            font-family: Arial, Helvetica, sans-serif;
+                            margin: 0;
                         }
                     </style>
                 </head>
                 <body>
-                    <div class='container'>
-                        <header>
-                            <h1>Firma de convenios</h1>
-                        </header>
+                    <div class='contenedor'>
+                        <div class='contenido'>
+                            <header>
+                                <div class='uac'>
+                                    <img class='uac_img' src='https://github.com/Samuel-Lopez13/FrontEnd_Convenios/blob/main/src/assets/imagenes/UAC.png?raw=true' alt='logo'>
+                                </div>
+                                <div class='convenios'>
+                                    <img class='convenios_img' src='https://github.com/Samuel-Lopez13/FrontEnd_Convenios/blob/main/src/assets/imagenes/LogoConvenios.png?raw=true' alt='usuario'>
+                                </div>
+                            </header>
+                            <div class='encabezado'>
+                                <h5 class='encabezado__frase'>
+                                    Alerta se ha realizado una revision de la contraparte
+                                </h5>
+                            </div>
+                        </div>
                     </div>
                 </body>
                 </html>";
