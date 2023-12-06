@@ -21,6 +21,7 @@ public static class ConfigureServices
         services.AddScoped<IValidateFiles, ValidateFiles>();
         services.AddScoped<IConvertToBase64, ConvertToBase64>();
         services.AddScoped<IUploadFile, UploadFiles>();
+        services.AddScoped<IEmail, Email>();
         
         services.AddAuthorization();
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

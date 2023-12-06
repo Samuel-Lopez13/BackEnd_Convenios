@@ -17,11 +17,13 @@ public class ModificarContratosIdHandler : IRequestHandler<ModifcarContratosId>
 {
     private readonly ConvenioContext _context;
     private readonly IUploadFile _uploadFile;
+    private readonly IEmail _email;
     
-    public ModificarContratosIdHandler(ConvenioContext context, IUploadFile uploadFile)
+    public ModificarContratosIdHandler(ConvenioContext context, IUploadFile uploadFile, IEmail email)
     {
         _context = context;
         _uploadFile = uploadFile;
+        _email = email;
     }
     
     public async Task<Unit> Handle(ModifcarContratosId request, CancellationToken cancellationToken)
@@ -54,6 +56,21 @@ public class ModificarContratosIdHandler : IRequestHandler<ModifcarContratosId>
         _context.Contratos.Update(contratos);
         
         await _context.SaveChangesAsync(cancellationToken);
+        
+        var contrat = await _context.Contratos
+            .Where(x => x.Contrato_Id == request.Contrato_Id)
+            /*.Select(c => new
+            {
+                ContratoNombre = c.Nombre, // Ajusta esto según la propiedad real de tu contrato
+                UsuariosEmails = c.Instituciones.Users.Select(u => u.Email).ToList()
+            })*/
+            .SelectMany(c => c.Instituciones.Users.Select(u => u.Email))
+            .ToListAsync(cancellationToken);
+        
+        foreach (var usuario in contrat)
+        {
+            _email.EnviarEmail(usuario, contratos.Nombre, "se mando ha revision");
+        }
         
         return Unit.Value;
     }
