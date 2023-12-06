@@ -39,17 +39,6 @@ namespace Core.Infraestructure.Persistance
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Agreement_ibfk_1");
             });
-            
-            modelBuilder.Entity<Intercambio>(entity =>
-            {
-                entity.HasKey(e => e.Intercambio_Id);
-
-                entity.HasOne(d => d.Contratos)
-                    .WithMany(p => p.Intercambios)
-                    .HasForeignKey(d => d.Contrato_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("Intercambio_ibfk_1");
-            });
 
             modelBuilder.Entity<Alerta>(entity =>
             {

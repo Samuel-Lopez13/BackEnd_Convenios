@@ -1,3 +1,4 @@
+using Core.Domain.Exceptions;
 using Core.Infraestructure.Persistance;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,11 @@ public class RevisionHandler : IRequestHandler<Revision, RevisionResponse>
     {
         var fase = await _context.Intercambios.FirstOrDefaultAsync(x => x.Contrato_Id == request.Contrato_Id);
 
+        if (fase == null)
+        {
+            throw new NotFoundException("No existe el contrato");
+        }
+        
         var response = new RevisionResponse()
         {
             Revision = fase.Revision

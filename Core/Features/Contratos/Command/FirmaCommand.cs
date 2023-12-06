@@ -5,32 +5,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.Features.Contratos.Command;
 
-public record RevisionCommand : IRequest
+public record FirmaCommand : IRequest
 {
     public int Id_Contrato { get; set; }
 }
 
-public class RevisionCommandHandler : IRequestHandler<RevisionCommand>
+public class FirmaCommandHandler : IRequestHandler<FirmaCommand>
 {
     private readonly ConvenioContext _context;
     
-    public RevisionCommandHandler(ConvenioContext context)
+    public FirmaCommandHandler(ConvenioContext context)
     {
         _context = context;
     }
-
-    public async Task<Unit> Handle(RevisionCommand request, CancellationToken cancellationToken)
+    
+    public async Task<Unit> Handle(FirmaCommand request, CancellationToken cancellationToken)
     {
-        var fase = await _context.Intercambios.FirstOrDefaultAsync(x => x.Contrato_Id == request.Id_Contrato);
+        var firma = await _context.Intercambios.FirstOrDefaultAsync(x => x.Contrato_Id == request.Id_Contrato);
 
-        if (fase == null)
+        if (firma == null)
         {
             throw new NotFoundException("No existe el contrato");
         }
         
-        fase.Revision = !fase.Revision;
+        firma.Firma = !firma.Firma;
 
-        _context.Intercambios.Update(fase);
+        _context.Intercambios.Update(firma);
         await _context.SaveChangesAsync(cancellationToken);
         
         return Unit.Value;
