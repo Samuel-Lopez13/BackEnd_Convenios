@@ -105,11 +105,11 @@ public class ContratosController : ControllerBase
         return Ok(await _mediator.Send(command));
     }
     
-    [HttpPut("Revision")]
+    /*[HttpPut("Revision")]
     public async Task<IActionResult> PutRevision([FromBody] RevisionCommand command)
     {
         return Ok(await _mediator.Send(command));
-    }
+    }*/
     
     [HttpPut("Firma")]
     public async Task<IActionResult> PutFirma([FromBody] FirmaCommand command)

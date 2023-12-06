@@ -28,6 +28,13 @@ public class ModificarContratosIdHandler : IRequestHandler<ModifcarContratosId>
     {
         var contratos = await _context.Contratos.FirstOrDefaultAsync(x => x.Contrato_Id == request.Contrato_Id);
         
+        var fase = await _context.Intercambios.FirstOrDefaultAsync(x => x.Contrato_Id == request.Contrato_Id);
+
+        if (fase == null)
+        {
+            throw new NotFoundException("No existe el contrato");
+        }
+        
         if (contratos == null)
         {
             throw new NotFoundException("No se encontro el contrato");
@@ -35,10 +42,17 @@ public class ModificarContratosIdHandler : IRequestHandler<ModifcarContratosId>
         
         var documento = _uploadFile.UploadRaw(request.File, contratos.Nombre.Trim().ToLower() + "C.docx");
         
+        //Modificamos el contrato
         contratos.FileAntiguo = contratos.File;
         contratos.File = documento;
         
+        //Cambiamos el estado de la revision
+        fase.Revision = !fase.Revision;
+
+        //Actualizamos los datos
+        _context.Intercambios.Update(fase);
         _context.Contratos.Update(contratos);
+        
         await _context.SaveChangesAsync(cancellationToken);
         
         return Unit.Value;
