@@ -81,6 +81,12 @@ public class ContratosController : ControllerBase
         return await _mediator.Send(new ContratosUsuario());
     }
     
+    [HttpGet("Revision/{Contrato_Id}")]
+    public async Task<RevisionResponse> GetRevision(int Contrato_Id)
+    {
+        return await _mediator.Send(new Revision(){ Contrato_Id = Contrato_Id });
+    }
+    
     /// <summary>
     /// Crea un contrato
     /// </summary>
@@ -89,6 +95,12 @@ public class ContratosController : ControllerBase
     /// </remarks>
     [HttpPost("Contrato")]
     public async Task<IActionResult> PostContrato([FromForm] CrearContratoCommand command)
+    {
+        return Ok(await _mediator.Send(command));
+    }
+    
+    [HttpPut("Revision")]
+    public async Task<IActionResult> PutRevision([FromBody] RevisionCommand command)
     {
         return Ok(await _mediator.Send(command));
     }

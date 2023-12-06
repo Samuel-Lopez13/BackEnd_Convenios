@@ -5797,19 +5797,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\Core.csproj",
-      "projectName": "Core",
-      "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\Convenios\\Core\\obj\\",
-=======
       "projectUniqueName": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\Core.csproj",
       "projectName": "Core",
       "projectPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\obj\\",
->>>>>>> 932e5a0633b80d13dec91b6d62f3dd654767e524
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lopez\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5900,5 +5892,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\lopez\\Desktop\\Proyectos\\Convenio v2\\BackEnd\\BackEnd_Convenios\\Core\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

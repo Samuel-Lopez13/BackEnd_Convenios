@@ -30,7 +30,8 @@ public class ContratosIdHandler : IRequestHandler<ContratosId, ContratoIdRespons
 
         var response = new ContratoIdResponse
         {
-            File = contratos.File
+            File = contratos.File,
+            Nombre = contratos.Nombre
         };
         
         return response;
@@ -40,4 +41,5 @@ public class ContratosIdHandler : IRequestHandler<ContratosId, ContratoIdRespons
 public record ContratoIdResponse
 {
     public string File { get; set; } = null!;
+    public string Nombre { get; set; } = null!;
 }
