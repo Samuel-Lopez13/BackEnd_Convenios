@@ -58,6 +58,7 @@ public class UsuarioController : ControllerBase
     /// <b>JSON:</b> Numero de paginas
     /// </remarks>
     [HttpGet("Paginas")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrador")]
     public async Task<ObtenerPaginasUResponse> GetPaginas()
     {
         return await _mediator.Send(new ObtenerPaginasU());

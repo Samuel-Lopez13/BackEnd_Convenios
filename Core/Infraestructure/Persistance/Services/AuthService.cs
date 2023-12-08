@@ -24,7 +24,9 @@ public class AuthService : IAuthService
     public async Task<string> AuthenticateAsync(string email, string password)
     {
         //Devuelve al usuario
-        var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
+        var user = await _context.Usuarios
+            .Include(u => u.Roles)
+            .FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
         
         //Si no es encontrado el usuario deniega el acceso
         if(user == null)
@@ -39,6 +41,7 @@ public class AuthService : IAuthService
             {
                 new Claim(ClaimTypes.Name, user.Usuario_Id.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Role, user?.Roles.Nombre)
             }),
             Expires = DateTime.UtcNow.AddMonths(1),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

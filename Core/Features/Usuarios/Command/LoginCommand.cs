@@ -42,6 +42,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginCommandRes
         if(token == null)
             throw new NotFoundException("Usuario no encontrado");
         
+        //Lo necesitamos para saber su rol
         var usuario = await _context.Usuarios
             .AsNoTracking()
             .Include(u => u.Roles)
