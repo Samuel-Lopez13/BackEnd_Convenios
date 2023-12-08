@@ -57,20 +57,20 @@ public class ModificarContratosIdHandler : IRequestHandler<ModifcarContratosId>
         
         await _context.SaveChangesAsync(cancellationToken);
         
-        var contrat = await _context.Contratos
-            .Where(x => x.Contrato_Id == request.Contrato_Id)
+        //var contrat = await _context.Contratos
+          //  .Where(x => x.Contrato_Id == request.Contrato_Id)
             /*.Select(c => new
             {
                 ContratoNombre = c.Nombre, // Ajusta esto según la propiedad real de tu contrato
                 UsuariosEmails = c.Instituciones.Users.Select(u => u.Email).ToList()
             })*/
-            .SelectMany(c => c.Instituciones.Users.Select(u => u.Email))
+           /* .SelectMany(c => c.Instituciones.Users.Select(u => u.Email))
             .ToListAsync(cancellationToken);
         
         foreach (var usuario in contrat)
         {
             _email.EnviarEmail(usuario, contratos.Nombre, "se mando ha revision");
-        }
+        }*/
         
         return Unit.Value;
     }

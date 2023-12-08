@@ -10,11 +10,12 @@ namespace Core.Features.Usuarios.Command;
 public record LoginCommand : IRequest<LoginCommandResponse>
 {
     [Required]
+    [Display(Name = "Correo")]
     public string Email { get; set; }
     [Required]
+    [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")]
     public string Contrasena { get; set; }
 }
-
 
 public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginCommandResponse>
 {
@@ -40,6 +41,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginCommandRes
             throw new NotFoundException("Usuario no encontrado");
         
         var usuario = await _context.Usuarios
+            .AsNoTracking()
             .Include(u => u.Roles)
             .FirstOrDefaultAsync(x => x.Email == request.Email);
         
@@ -56,4 +58,10 @@ public record LoginCommandResponse
 {
     public string Token { get; set; }
     public string Rol { get; set; }
+}
+
+//Sirve para hacer tus validaciones personalizadas
+public class ValidationPersonalizada : ValidationAttribute
+{
+    
 }
