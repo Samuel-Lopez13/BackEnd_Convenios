@@ -9,11 +9,13 @@ namespace Core.Features.Usuarios.Command;
 
 public record LoginCommand : IRequest<LoginCommandResponse>
 {
-    [Required]
-    [Display(Name = "Correo")]
+    ///<example>lopez180219@gmail.com</example>
+    [Required] 
+    [Display(Name = "Correo")] 
     public string Email { get; set; }
+
+    ///<example>SamuelDe</example>
     [Required]
-    [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")]
     public string Contrasena { get; set; }
 }
 

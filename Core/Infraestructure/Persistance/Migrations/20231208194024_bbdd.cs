@@ -6,7 +6,7 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace Core.Infraestructure.Persistance.Migrations
 {
-    public partial class MigracionInicial : Migration
+    public partial class bbdd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,6 +59,7 @@ namespace Core.Infraestructure.Persistance.Migrations
                     Descripcion = table.Column<string>(type: "longtext", nullable: false),
                     Status = table.Column<string>(type: "longtext", nullable: false),
                     File = table.Column<string>(type: "longtext", nullable: false),
+                    FileAntiguo = table.Column<string>(type: "longtext", nullable: true),
                     Institucion_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -116,6 +117,27 @@ namespace Core.Infraestructure.Persistance.Migrations
                     table.PrimaryKey("PK_Alertas", x => x.Alerta_Id);
                     table.ForeignKey(
                         name: "Alert_ibfk_1",
+                        column: x => x.Contrato_Id,
+                        principalTable: "Contratos",
+                        principalColumn: "Contrato_Id");
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Intercambios",
+                columns: table => new
+                {
+                    Intercambio_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Revision = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Firma = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Contrato_Id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Intercambios", x => x.Intercambio_Id);
+                    table.ForeignKey(
+                        name: "Intercambio_ibfk_1",
                         column: x => x.Contrato_Id,
                         principalTable: "Contratos",
                         principalColumn: "Contrato_Id");
@@ -203,6 +225,17 @@ namespace Core.Infraestructure.Persistance.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Instituciones_Nombre",
+                table: "Instituciones",
+                column: "Nombre",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Intercambios_Contrato_Id",
+                table: "Intercambios",
+                column: "Contrato_Id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Logs_Contrato_Id",
                 table: "Logs",
                 column: "Contrato_Id");
@@ -236,6 +269,9 @@ namespace Core.Infraestructure.Persistance.Migrations
 
             migrationBuilder.DropTable(
                 name: "Chats");
+
+            migrationBuilder.DropTable(
+                name: "Intercambios");
 
             migrationBuilder.DropTable(
                 name: "Logs");

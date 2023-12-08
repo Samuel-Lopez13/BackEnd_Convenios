@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Core.Infraestructure.Persistance.Migrations
 {
     [DbContext(typeof(ConvenioContext))]
-    [Migration("20231129181340_intercambio")]
-    partial class intercambio
+    [Migration("20231208194024_bbdd")]
+    partial class bbdd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,6 +91,9 @@ namespace Core.Infraestructure.Persistance.Migrations
 
                     b.Property<string>("File")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("FileAntiguo")
                         .HasColumnType("longtext");
 
                     b.Property<int>("Institucion_Id")

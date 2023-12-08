@@ -81,10 +81,6 @@ namespace Core.Infraestructure.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Fase")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime(6)");
 
@@ -93,6 +89,9 @@ namespace Core.Infraestructure.Persistance.Migrations
 
                     b.Property<string>("File")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("FileAntiguo")
                         .HasColumnType("longtext");
 
                     b.Property<int>("Institucion_Id")

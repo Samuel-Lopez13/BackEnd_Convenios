@@ -4,5 +4,11 @@
         <name>Core</name>
     </assembly>
     <members>
+        <member name="P:Core.Features.Usuarios.Command.LoginCommand.Email">
+            <example>lopez180219@gmail.com</example>
+        </member>
+        <member name="P:Core.Features.Usuarios.Command.LoginCommand.Contrasena">
+            <example>SamuelDe</example>
+        </member>
     </members>
 </doc>
