@@ -10,10 +10,10 @@ namespace Core.Domain.Entities
         public int Chat_Id { get; set; }
         public string Mensaje { get; set; } = null!;
         public DateTime Fecha { get; set; }
-        public int Contrato_Id { get; set; }
-        public int Usuario_Id { get; set; }
+        public int? Contrato_Id { get; set; }
+        public int? Usuario_Id { get; set; }
 
-        public Contrato Contratos { get; set; } = null!;
-        public Usuario Usuarios { get; set; } = null!;
+        public Contrato? Contratos { get; set; } = null!;
+        public Usuario? Usuarios { get; set; } = null!;
     }
 }

@@ -46,6 +46,7 @@ public class UsuarioController : ControllerBase
     /// <b>JSON:</b> todos los usuarios registradas
     /// </remarks>
     [HttpGet("Usuarios/{pagina}")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrador")]
     public async Task<List<ObtenerUsuariosResponse>> GetUsuarios(int pagina)
     {
         return await _mediator.Send(new ObtenerUsuarios(){ pagina = pagina });
@@ -71,6 +72,7 @@ public class UsuarioController : ControllerBase
     /// <b>JSON:</b> todos los usuarios que coincidan con el nombre
     /// </remarks>
     [HttpGet("Buscar")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrador")]
     public async Task<List<BuscarUsuariosResponse>> GetBuscarInstituciones(int pagina, string nombre)
     {
         return await _mediator.Send(new BuscarUsuarios(){ Pagina = pagina, Nombre = nombre });
@@ -83,6 +85,7 @@ public class UsuarioController : ControllerBase
     /// <b>JSON:</b> Numero de paginas
     /// </remarks>
     [HttpGet("Paginas/{nombre}")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrador")]
     public async Task<BuscarPaginasUResponse> GetBuscarPaginas(string nombre)
     {
         return await _mediator.Send(new BuscarPaginasU(){Nombre = nombre});
@@ -110,6 +113,7 @@ public class UsuarioController : ControllerBase
     /// <b>JSON:</b> Correo y Contraseña del usuario creado
     /// </remarks>
     [HttpPost("Usuarios")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrador")]
     public async Task<CrearUsuarioResponse> PostUsuario([FromBody] CrearUsuarioCommand command)
     {
         return await _mediator.Send(command);
@@ -124,6 +128,7 @@ public class UsuarioController : ControllerBase
     /// <b>404:</b> Not Found: No se encontro el usuario
     /// </remarks>
     [HttpDelete("Usuario/{Usuario_Id}")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrador")]
     public async Task<IActionResult> DeleteUsuario(int Usuario_Id)
     {
         return Ok(await _mediator.Send(new EliminarUsuarioCommand(){ Usuario_Id = Usuario_Id }));

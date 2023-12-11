@@ -23,9 +23,10 @@ namespace Core.Domain.Entities
         public string? Status { get; set; }
         public string? File { get; set; }
         public string? FileAntiguo { get; set; }
-        public int Institucion_Id { get; set; }
+        public string? FileComparacion { get; set; }
+        public int? Institucion_Id { get; set; }
 
-        public Institucion Instituciones { get; set; } = null!;
+        public Institucion? Instituciones { get; set; } = null!;
         
         public virtual ICollection<Alerta> Alerts { get; set; }
         public virtual ICollection<Chat> Chats { get; set; }

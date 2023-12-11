@@ -4,6 +4,7 @@ using Core.Domain.Exceptions;
 using Core.Infraestructure.Persistance;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Scrypt;
 
 namespace Core.Features.Usuarios.Command;
 
@@ -34,6 +35,10 @@ public class CrearUsuarioCommandHandler : IRequestHandler<CrearUsuarioCommand, C
         {
             throw new BadRequestException("Error ya existe un usuario con ese correo");
         }
+        
+        ScryptEncoder encoder = new ScryptEncoder();
+        string hashsedPassword = encoder.Encode(GenerarClave());
+        Console.WriteLine(hashsedPassword);
         
         var usuario = new Domain.Entities.Usuario
         {

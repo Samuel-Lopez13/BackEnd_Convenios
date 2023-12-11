@@ -148,4 +148,11 @@ public class ContratosController : ControllerBase
     {
         return Ok(await _mediator.Send(new EliminarContratoCommand(){ Contrato_Id = Contrato_Id }));
     }
+    
+    [AllowAnonymous]
+    [HttpPost("verificacion")]
+    public async Task<IActionResult> PostVerificacion([FromForm] Verificacion command)
+    {
+        return Ok(await _mediator.Send(command));
+    }
 }

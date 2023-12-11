@@ -19,9 +19,9 @@ namespace Core.Domain.Entities
         public string Nombre { get; set; } = null!;
         public bool? AcceptTerms { get; set; }
         public int? Rol_Id { get; set; }
-        public int Institucion_Id { get; set; }
+        public int? Institucion_Id { get; set; }
 
-        public Institucion Instituciones { get; set; } = null!;
+        public Institucion? Instituciones { get; set; } = null!;
         public virtual Rol? Roles { get; set; }
         
         public virtual ICollection<Chat> Chats { get; set; }

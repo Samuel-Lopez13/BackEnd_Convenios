@@ -36,7 +36,7 @@ namespace Core.Infraestructure.Persistance
                 entity.HasOne(d => d.Instituciones)
                     .WithMany(p => p.Agreements)
                     .HasForeignKey(d => d.Institucion_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("Agreement_ibfk_1");
             });
 
@@ -51,6 +51,7 @@ namespace Core.Infraestructure.Persistance
                 entity.HasOne(d => d.Contratos)
                     .WithMany(p => p.Alerts)
                     .HasForeignKey(d => d.Contrato_Id)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("Alert_ibfk_1");
             });
             
@@ -61,7 +62,7 @@ namespace Core.Infraestructure.Persistance
                 entity.HasOne(d => d.Contratos)
                     .WithMany(p => p.Intercambios)
                     .HasForeignKey(d => d.Contrato_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("Intercambio_ibfk_1");
             });
 
@@ -76,13 +77,13 @@ namespace Core.Infraestructure.Persistance
                 entity.HasOne(d => d.Contratos)
                     .WithMany(p => p.Chats)
                     .HasForeignKey(d => d.Contrato_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("Chat_ibfk_1");
 
                 entity.HasOne(d => d.Usuarios)
                     .WithMany(p => p.Chats)
                     .HasForeignKey(d => d.Usuario_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("Chat_ibfk_2");
             });
 
@@ -120,7 +121,7 @@ namespace Core.Infraestructure.Persistance
                 entity.HasOne(d => d.Usuarios)
                     .WithMany(p => p.Logs)
                     .HasForeignKey(d => d.Usuario_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("Log_ibfk_2");
             });
 
@@ -147,7 +148,7 @@ namespace Core.Infraestructure.Persistance
                 entity.HasOne(d => d.Instituciones)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.Institucion_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("User_institution_FK");
 
                 entity.HasOne(d => d.Roles)
