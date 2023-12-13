@@ -31,9 +31,8 @@ public class ContratoFullHandler : IRequestHandler<ContratoFull, ContratoFullRes
         var listo = false;
 
         if (contrato.FechaFinalizacion != null)
-        {
             listo = true;
-        }
+        
         
         var response = new ContratoFullResponse()
         {

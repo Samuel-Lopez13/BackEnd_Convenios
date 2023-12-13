@@ -26,7 +26,8 @@ public class ObtenerRolUsuarioHandler : IRequestHandler<ObtenerRolUsuario, Obten
             .FirstOrDefaultAsync(x => x.Usuario_Id == _authorization.UsuarioActual());
         
         var response = new ObtenerRolUsuarioResponse{
-            Rol = usuario?.Roles?.Nombre ?? "Sin Rol"
+            Rol = usuario?.Roles?.Nombre ?? "Sin Rol",
+            Nombre = usuario.Nombre
         };
 
         return response;
@@ -36,4 +37,5 @@ public class ObtenerRolUsuarioHandler : IRequestHandler<ObtenerRolUsuario, Obten
 public record ObtenerRolUsuarioResponse
 {
     public string Rol { get; set; }
+    public string Nombre { get; set; }
 }
