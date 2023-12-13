@@ -28,11 +28,13 @@ public class ContratoFullHandler : IRequestHandler<ContratoFull, ContratoFullRes
             throw new NotFoundException("No existe el contrato");
         }
 
-        var listo = false;
+        bool listo = false;
 
-        if (contrato.FechaFinalizacion != null)
+        if(contrato.Status == "Activo")
             listo = true;
         
+        if (contrato.FechaFinalizacion != null)
+            listo = true;
         
         var response = new ContratoFullResponse()
         {

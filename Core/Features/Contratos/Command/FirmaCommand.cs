@@ -22,15 +22,19 @@ public class FirmaCommandHandler : IRequestHandler<FirmaCommand>
     public async Task<Unit> Handle(FirmaCommand request, CancellationToken cancellationToken)
     {
         var firma = await _context.Intercambios.FirstOrDefaultAsync(x => x.Contrato_Id == request.Id_Contrato);
-
+        var contrato = await _context.Contratos.FirstOrDefaultAsync(x => x.Contrato_Id == request.Id_Contrato);
+        
         if (firma == null)
         {
             throw new NotFoundException("No existe el contrato");
         }
         
         firma.Firma = !firma.Firma;
-
+        contrato.Status = "Pendiente";
+        
+        _context.Contratos.Update(contrato);
         _context.Intercambios.Update(firma);
+        
         await _context.SaveChangesAsync(cancellationToken);
         
         return Unit.Value;

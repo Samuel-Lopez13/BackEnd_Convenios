@@ -22,7 +22,7 @@ public class FirmaHandler : IRequestHandler<Firma, FirmaResponse>
     public async Task<FirmaResponse> Handle(Firma request, CancellationToken cancellationToken)
     {
         var firma = await _context.Intercambios.FirstOrDefaultAsync(x => x.Contrato_Id == request.Contrato_Id);
-
+        
         if (firma == null)
         {
             throw new NotFoundException("No existe el contrato");
