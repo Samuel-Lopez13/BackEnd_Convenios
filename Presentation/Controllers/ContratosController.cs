@@ -99,6 +99,12 @@ public class ContratosController : ControllerBase
         return await _mediator.Send(new ContratoFull(){ Contrato_Id = Contrato_Id });
     }
     
+    [HttpGet("Status/{Contrato_Id}")]
+    public async Task<StatusResponse> GetStatus(int Contrato_Id)
+    {
+        return await _mediator.Send(new Status(){ Contrato_Id = Contrato_Id });
+    }
+    
     /// <summary>
     /// Crea un contrato
     /// </summary>
