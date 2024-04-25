@@ -6,6 +6,12 @@
 
 En N3XUS TECH INC, buscamos la innovación tecnológica y la excelencia en soluciones. Nuestra visión es construir una plataforma globalmente reconocida donde los programadores  puedan presentar sus códigos verificados y donde los innovadores tecnológicos encuentren respuestas confiables para sus desafíos en nuestra aplicación web N3XUS TECH.
 
+### Para hacer un Scaffold
+
+```
+Scaffold-DbContext "Server=localhost;DataBase=fisiolabs_sofwaredb;User=root;Password=admin;Port=3306;" MySql.EntityFrameworkCore
+```
+
 ### Crear las migraciones
 
 **.NetCore CLI**
